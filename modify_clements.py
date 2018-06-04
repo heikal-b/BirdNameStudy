@@ -40,6 +40,7 @@ clements_csv = open('/Users/heikal/BirdNameStudy/Clements_usca.csv')
 csv_reader = csv.reader(clements_csv)
 # Copy non-empty csv rows to a list
 clements_list = [[r[0], r[1], r[2], ''] for r in csv_reader if not is_empty_row(r)]
+clements_csv.close()
 
 # Create columns for the order and family data
 for row in clements_list:
@@ -56,3 +57,4 @@ clements_list = [row for row in clements_list if not is_order_family(row)]
 outfile = open('/Users/heikal/BirdNameStudy/Clements_usca_mod.csv', 'w')
 outwriter = csv.writer(outfile)
 outwriter.writerows(clements_list)
+outfile.close()
