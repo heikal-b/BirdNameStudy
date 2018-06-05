@@ -74,6 +74,21 @@ def main():
     print('Is a bird of prey?: ', barn_owl.is_bop())
     print('String format: ', str(barn_owl))
     print('Representation: ', repr(barn_owl))
+
+    print('\n')
+
+    print('Full name: ', lincoln_sparrow.full_name)
+    print('Main name: ', lincoln_sparrow.main_name)
+    print('Modifying name: ', lincoln_sparrow.mod_name)
+    print('Species name: ', lincoln_sparrow.species)
+    print('Order: ', lincoln_sparrow.order)
+    print('Family: ', lincoln_sparrow.family)
+    print('Is a bird of prey?: ', lincoln_sparrow.is_bop())
+    print('String format: ', str(lincoln_sparrow))
+    print('Representation: ', repr(lincoln_sparrow))
+
+    print('\n')
+
     print('Barn owl equals another barn owl?: ', barn_owl == barn_owl_2)
     print('Barn owl equals Lincoln sparrow?: ', (barn_owl == lincoln_sparrow))
 
