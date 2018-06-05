@@ -1,6 +1,7 @@
 # List of bird of prey orders
 birds_of_prey_orders = ['Strigiformes', 'Cathartiformes', 'Accipitriformes', 'Falconiformes']
 
+
 class NamedBird:
     """
     A NamedBird represents birds for accessing different parts of their names and other information
@@ -41,18 +42,29 @@ class NamedBird:
         return self.full_name == other.full_name
 
     def __str__(self):
+        """
+        Represent the string of a NamedBird as it's full name
+        :return:
+        """
         return self.full_name
 
     def __repr__(self):
+        """
+        Represent a NamedBird as a sequence of its information
+        :return:
+        """
         return ', '.join([self.full_name, self.species, self.order, self.family])
 
 
 def main():
     """
     Testing, testing ...
-    :return: 
+    :return:
     """
     barn_owl = NamedBird('Barn Owl', 'Tyto alba', 'Strigiformes', 'Tytonidae')
+    barn_owl_2 = NamedBird('Barn Owl', 'Tyto alba', 'Strigiformes', 'Tytonidae')
+    lincoln_sparrow = NamedBird('Lincoln\'s Sparrow', 'Melospiza lincolnii', 'Passeriformes', 'Passerellidae')
+
     print('Full name: ', barn_owl.full_name)
     print('Main name: ', barn_owl.main_name)
     print('Modifying name: ', barn_owl.mod_name)
@@ -62,6 +74,8 @@ def main():
     print('Is a bird of prey?: ', barn_owl.is_bop())
     print('String format: ', str(barn_owl))
     print('Representation: ', repr(barn_owl))
+    print('Barn owl equals another barn owl?: ', barn_owl == barn_owl_2)
+    print('Barn owl equals Lincoln sparrow?: ', (barn_owl == lincoln_sparrow))
 
 
 if __name__ == '__main__':
