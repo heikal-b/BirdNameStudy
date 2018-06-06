@@ -16,11 +16,11 @@ class NamedBird:
         """
         self.full_name = full_name
         full_name = full_name.split()
-        self.main_name = full_name[1]
+        self.main_name = full_name[-1]
 
         # Some bird names are just a single word
-        if len(full_name) >= 1:
-            self.mod_name = full_name[0]
+        if len(full_name) > 1:
+            self.mod_name = ' '.join(full_name[:-1])
 
         self.species = species
         self.order = order
@@ -88,7 +88,20 @@ def main():
     print('Representation: ', repr(lincoln_sparrow))
 
     print('\n')
+    
+    gb_heron = NamedBird('Great Blue Heron', 'Ardea herodias', 'Pelecaniformes', 'Ardeidae')
+    print('Full name: ', gb_heron.full_name)
+    print('Main name: ', gb_heron.main_name)
+    print('Modifying name: ', gb_heron.mod_name)
+    print('Species name: ', gb_heron.species)
+    print('Order: ', gb_heron.order)
+    print('Family: ', gb_heron.family)
+    print('Is a bird of prey?: ', gb_heron.is_bop())
+    print('String format: ', str(gb_heron))
+    print('Representation: ', repr(gb_heron))
 
+    print('\n')
+    
     print('Barn owl equals another barn owl?: ', barn_owl == barn_owl_2)
     print('Barn owl equals Lincoln sparrow?: ', (barn_owl == lincoln_sparrow))
 
