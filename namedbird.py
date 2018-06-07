@@ -21,6 +21,8 @@ class NamedBird:
         # Some bird names are just a single word
         if len(full_name) > 1:
             self.mod_name = ' '.join(full_name[:-1])
+        else:
+            self.mod_name = '<No modifier name>'
 
         self.species = species
         self.order = order
@@ -32,6 +34,7 @@ class NamedBird:
         :return: (bool) True if the bird is a bird of prey, if not return False
         """
         return self.order in birds_of_prey_orders or self.order.lower() in [f.lower() for f in birds_of_prey_orders]
+
 
     def __eq__(self, other):
         """
