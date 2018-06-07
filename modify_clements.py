@@ -35,7 +35,7 @@ def get_order_family(order_family):
 
 
 # Clements list obtained from Avibase
-clements_csv = open('/Users/heikal/BirdNameStudy/Clements_usca.csv')
+clements_csv = open('clements_usca.csv')
 # Read the CSV document
 csv_reader = csv.reader(clements_csv)
 # Copy non-empty csv rows to a list
@@ -54,7 +54,7 @@ for row in clements_list:
 clements_list = [row for row in clements_list if not is_order_family(row)]
 
 # Write new data set to a new file
-outfile = open('/Users/heikal/BirdNameStudy/Clements_usca_mod.csv', 'w')
+outfile = open('clements_usca_mod.csv', 'w')
 outwriter = csv.writer(outfile)
 outwriter.writerows(clements_list)
 outfile.close()
