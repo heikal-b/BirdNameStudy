@@ -2,13 +2,14 @@ import csv
 from namedbird import NamedBird
 import pickle
 
+
 def main():
     """
     Build NamedBird objects
     :return:
     """
     # Read Clements list CSV data
-    clements_csv = open('/Users/heikal/BirdNameStudy/clements_usca_mod.csv')
+    clements_csv = open('clements_usca_mod.csv')
     csv_reader = csv.reader(clements_csv)
     # List for new NamedBirds
     built_birds = []
@@ -23,7 +24,7 @@ def main():
         print(built_birds[i])
 
     # Save the list of new NamedBirds
-    outfile = open('/Users/heikal/BirdNameStudy/built_birds.pickle', 'wb')
+    outfile = open('built_birds.pickle', 'wb')
     pickle.dump(built_birds, outfile)
 
     # Fin
