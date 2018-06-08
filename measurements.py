@@ -2,7 +2,6 @@ import re
 from namedbird import NamedBird
 import nltk
 
-
 def participle_adj(name):
     """
     Tell if a word is a participle adjective
@@ -52,6 +51,23 @@ def embeddedness(target_list, compared_list):
     return len(intersection)/len(target_list)
 
 
+def num_syll(name):
+    """
+    Return the number of syllable in a name
+    :param name: the name
+    :return: number of syllables
+    """
+    # Pronouncing dictionary
+    prondict = nltk.corpus.cmudict.dict()
+    # Try to find the word in the pronouncing dictionary
+    try:
+        phone = prondict[name.lower()]
+        phone = phone[0]
+        return len([ph for ph in phone if not ph.isalpha()])
+    except KeyError:
+        return 0
+
+
 def main():
     bc_chickadee = NamedBird('Black-capped Chickadee', 'Poecile atricapillus', 'Passeriformes', 'Paridae')
     mountain_chickadee = NamedBird('Mountain Chickadee', 'Poecile gambeli', 'Passeriformes', 'Paridae')
@@ -69,6 +85,8 @@ def main():
     list1 = ['Blue', 'Mississippi', 'Atlantic', 'Common', 'Northern']
     list2 = ['Common', 'Northern', 'Bald']
     print(embeddedness(list2, list1))
+
+    print(num_syll(mountain_chickadee.mod_name))
 
 
 if __name__ == '__main__':
