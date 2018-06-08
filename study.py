@@ -4,6 +4,10 @@ import measurements as msr
 
 
 def main():
+    """
+    Collect and present data on the names of North American birds (US + Canada)
+    :return:
+    """
     # Load list of NamedBirds
     birds_pickle = open('built_birds.pickle', 'rb')
     birds = pickle.load(birds_pickle)
@@ -64,7 +68,11 @@ def main():
 
     print('Proportion with participle adjective (birds of prey):', bop_part_adj)
     print('Proportion with participle adjective (non-birds of prey):', nbop_part_adj)
+    print('\n')
+
+    birds_pickle.close()
 
 
 if __name__ == '__main__':
     main()
+    exit(0)
