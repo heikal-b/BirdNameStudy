@@ -2,6 +2,7 @@ import re
 from namedbird import NamedBird
 import nltk
 
+
 def participle_adj(name):
     """
     Tell if a word is a participle adjective
@@ -56,16 +57,41 @@ def num_syll(name):
     Return the number of syllable in a name
     :param name: the name
     :return: number of syllables
+
     """
+    if name == '<No modifier name>':
+        return 0
+
+    if '-' in name:
+        name = name.split('-')
+    else:
+        name = name.split()
+
     # Pronouncing dictionary
     prondict = nltk.corpus.cmudict.dict()
+
+    # Count vowels in arpabet transcription
+    syllables = 0
+
+    for n in name:
+        try:
+            phone = prondict[n.lower()]
+            syllables += len([ph for ph in phone[0] if not ph.isalpha()])
+        except KeyError:
+            syllables += 1000
+
+    return syllables
+
     # Try to find the word in the pronouncing dictionary
+
+    """
     try:
         phone = prondict[name.lower()]
         phone = phone[0]
         return len([ph for ph in phone if not ph.isalpha()])
     except KeyError:
         return 0
+    """
 
 
 def main():
