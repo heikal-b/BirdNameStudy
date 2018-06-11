@@ -29,9 +29,6 @@ if __name__ == '__main__':
         rows.append(('Non bird of prey', n, syll_count))
         count += 1
 
-    # cond_obs = [('Bird of prey', msr.num_syll(n)) for n in bop_names] \
-    #           + [('Non bird of prey', msr.num_syll(n)) for n in nbop_names]
-
     # Save list of rows of bird data
     outfile = open('syll_count.pickle', 'wb')
     pickle.dump(rows, outfile)
