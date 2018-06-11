@@ -1,6 +1,7 @@
 import pickle
 import nltk
 import measurements as msr
+import csv
 
 
 def main():
@@ -46,6 +47,20 @@ def main():
     nbop_part_adj = len(nbop_part_adj) / len(nbop_names)
     nbop_part_adj = round(nbop_part_adj, 3)
 
+    # --Get syllable counts
+    syll_csv = csv.reader(open('syll_count.csv'))
+    syll_counts = [(r[0], r[1]) for r in syll_csv]
+    syll_count_fd = nltk.ConditionalFreqDist(syll_counts)
+
+    # --Syllable count proportion
+    syll_count_prop_bop = [(k, round(syll_count_fd['Bird of prey'][k]/len(bop_names), 3))
+                           for k in syll_count_fd['Bird of prey'].keys()]
+
+    syll_count_prop_bop.sort()
+    syll_count_prop_nbop = [(k, round(syll_count_fd['Non bird of prey'][k]/len(nbop_names), 3))
+                            for k in syll_count_fd['Non bird of prey'].keys()]
+    syll_count_prop_nbop.sort()
+
     # Display results
     print('Number of birds of prey:', len(bop_names))
     print('Number of non-birds of prey:', len(nbop_names))
@@ -69,6 +84,19 @@ def main():
     print('Proportion with participle adjective (birds of prey):', bop_part_adj)
     print('Proportion with participle adjective (non-birds of prey):', nbop_part_adj)
     print('\n')
+
+    print('Frequency distribution: syllable count:')
+    syll_count_fd.tabulate()
+    print('\n')
+
+    print('Syllable count proportion (birds of prey):')
+    for i in syll_count_prop_bop:
+        print('{0}: {1}'.format(i[0], i[1]))
+    print('\n')
+
+    print('Syllable count proportion (non-birds of prey):')
+    for i in syll_count_prop_nbop:
+        print('{0}: {1}'.format(i[0], i[1]))
 
     birds_pickle.close()
 
