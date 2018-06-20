@@ -1,5 +1,5 @@
 # BirdNameStudy
-## A linguistic study of generalizations underlying common bird names.
+### A linguistic study of generalizations underlying common bird names.
 
 This study examines the modifying word in common bird names, such as the  *song* in *song sparrow*. In particular, it compares
 the names of birds of prey with the names of non-birds of prey. This study is restricted
