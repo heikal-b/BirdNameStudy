@@ -1,5 +1,6 @@
 # BirdNameStudy
 ### A linguistic study of generalizations underlying common bird names.
+Author: Heikal Badrulhisham <heikal93@gmail.com>, 2018
 
 This study examines the modifying word in common bird names, such as the  *song* in *song sparrow*. In particular, it compares
 the names of birds of prey with the names of non-birds of prey. This study is restricted
@@ -13,3 +14,6 @@ a NamedBird class definition, and utility methods for conducting analysis.
 The analysis is implemented in study.py, which will display results at the end via the console. The names of descriptive
 data therein are self-explanatory. One which may require an explanation is the notion of embeddedness; the embeddedness
 of set A in set B is the proportion of elements in set A that are also in set B, or #(A int B)/#A.
+
+Bless,
+Heikal
