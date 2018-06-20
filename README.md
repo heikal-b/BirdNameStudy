@@ -16,4 +16,5 @@ data therein are self-explanatory. One which may require an explanation is the n
 of set A in set B is the proportion of elements in set A that are also in set B, or #(A int B)/#A.
 
 Bless,
-Heikal
+
+-heikal [haɪ.kəl]
